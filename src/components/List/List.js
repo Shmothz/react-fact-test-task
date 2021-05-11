@@ -1,9 +1,9 @@
 import React from 'react'
 
-const List = ({selected}) => {
+const List = ({localState, count}) => {
   return <ul>
-    {selected
-      ? selected.map(i => <li key={i}>{i}</li>)
+    {localState[count]
+      ? localState[count].map(i => <li key={i}>{i}</li>)
       : null
     }
   </ul>
