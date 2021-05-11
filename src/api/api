@@ -1,0 +1,11 @@
+import axios from 'axios';
+
+const instance = axios.create({
+  baseURL: 'https://raw.githubusercontent.com/WilliamRu/TestAPI/master/db.json'
+})
+
+export const testAPI = {
+  getTestData() {
+    return instance.get('').then(res => res.data)
+  }
+}

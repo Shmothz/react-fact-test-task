@@ -1,0 +1,16 @@
+.contentWrapper {
+  background-color: forestgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .selectWrapper {
+    background-color: yellow;
+    width: 100px;
+    height: 280px;
+    margin-top: 20px;
+    li {
+      background-color: cyan;
+    }
+  }
+}
