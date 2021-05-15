@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+Тестовое задание для компании Факт.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Задание: 
 
-## Available Scripts
+Развернуть приложение на react.js на локальной машине. Для развертывания использовать create-react-app. В качестве препроцессора использовать scss в любом диалекте. Остальное, исходя из анализа задачи.
+Использовать flat, reduce, contact, forEach и прочее нельзя. Использовать можно только цикл for.
+Задание выполняется на основе данных в формате json, которые можно получить по адресу https://raw.githubusercontent.com/WilliamRu/TestAPI/master/db.json.
 
-In the project directory, you can run:
+ 1. Необходимо написать запрос, для получения данного json. Для этого можно использовать  fetch или Axios, по выбору. Необходимо реализовать обработку ошибки и время загрузки данных. Верстать красивый лодер и сообщение об ошибке необязательно. Можно обойтись текстом “Загрузка” и “Произошла ошибка”. 
 
-### `yarn start`
+ 2. Далее необходимо преобразовать данные. Первое, что необходимо сделать - сгладить массив, убрав вложенные массивы. Т.е. из [1,2,[3,4, [5,6]]] должно получится [1,2,3,4,5,6]. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 3. Далее необходимо разделить получившийся массив по примитивам на подмассивы. 
+[‘someStirng’, ‘foo’, 1, 2, 3, ‘bar’, {someProperty: ‘test’}, null, {}]  
+=> [[‘someStirng’, ‘foo’, ‘bar’], [1, 2, 3,], [{someProperty: ‘test’}]]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ 4. Далее необходимо реализовать интерфейс из произвольного количество селектов, где опциями для селектов будет выступать получившийся массивы. Количество селектов равно количеству массивов. Например, для примера выше их будет 3. 
+Селект должен поддерживать множественный выбор.
 
-### `yarn test`
+ 5. Выбранные опции из каждого селекта должны отображаться в отдельном поле вместе в виде списка. Это должен быть отдельный однофайловый компонент.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ 6. Необходимо реализовать функционал сброса состояния приложения до изначального.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 7. Последние 10 изменений состояния необходимо фиксировать и реализовать возможность перехода между этими состояниями (Отмена, возврат последних действий). При сбросе, все фиксированные состояния сбрасываются локальном стейте.
